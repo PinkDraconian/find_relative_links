@@ -12,7 +12,7 @@ def extract_links(url):
 
     # Relative URLs can be found in style tags
     for style in page.findAll('style'):
-        url_regex = r'url\(([\'"]?)(.*)\1\)'
+        url_regex = r'url\(([\'"]?)(.*?)\1\)'
         matches = re.findall(url_regex, style.text)
         [relative_links.add(match[1]) for match in matches]
 
